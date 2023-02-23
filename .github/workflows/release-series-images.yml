@@ -2,9 +2,8 @@ name: Build release series tagged container images
 
 on:
   push:
-    branches:
-      - master
   pull_request:
+  <snip>
   repository_dispatch:
     types:
       - dispatch-build
