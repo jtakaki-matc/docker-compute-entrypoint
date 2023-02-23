@@ -50,7 +50,8 @@ jobs:
         build-args: |
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
-        context: /base/Dockerfile
+        context: ./base
+        file: ./base/Dockerfile
         pull: True
         target: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
