@@ -38,5 +38,5 @@ COPY base/usr/local/bin/* /usr/local/bin/
 COPY base/etc/supervisord.d/* /etc/supervisord.d/
 
 # do the bad thing of overwriting the existing cron job for fetch-crl
-COPY base/etc/cron.d/fetch-crl /etc/cron.d/fetch-crl
+COPY ../base/etc/cron.d/fetch-crl /etc/cron.d/fetch-crl
 RUN chmod 644 /etc/cron.d/fetch-crl
