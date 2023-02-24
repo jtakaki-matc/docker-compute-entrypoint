@@ -29,7 +29,6 @@ jobs:
         repo: ['development', 'testing', 'release']
         osg_series: ['3.6']
     steps:
-
     - uses: actions/checkout@v2
 
     - name: Cache base image
