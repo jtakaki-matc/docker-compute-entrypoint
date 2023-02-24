@@ -67,7 +67,6 @@ jobs:
           image: ['hosted-ce', 'osg-ce-condor']
           osg_series: ['3.6']
       steps:
-
       - uses: actions/checkout@v2
 
       - name: Load cached base image
