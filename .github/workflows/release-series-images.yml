@@ -58,15 +58,15 @@ jobs:
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
   
-    name: ${{ matrix.image }}:${{ matrix.osg_series}}-${{ matrix.repo }} image build
-    runs-on: ubuntu-latest
-    needs: [make-date-tag, base-image-build]
-    strategy:
-      fail-fast: False
-      matrix:
-        repo: ['development', 'testing', 'release']
-        image: ['hosted-ce', 'osg-ce-condor']
-        osg_series: ['3.6']
+    - name: ${{ matrix.image }}:${{ matrix.osg_series}}-${{ matrix.repo }} image build
+      runs-on: ubuntu-latest
+      needs: [make-date-tag, base-image-build]
+      strategy:
+        fail-fast: False
+        matrix:
+          repo: ['development', 'testing', 'release']
+          image: ['hosted-ce', 'osg-ce-condor']
+          osg_series: ['3.6']
     steps:
 
     - uses: actions/checkout@v2
