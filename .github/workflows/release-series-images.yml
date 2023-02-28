@@ -68,9 +68,7 @@ jobs:
         context: ./base
         file: ./base/Dockerfile 
         push: True
-        tag: 'base'
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: "${{ steps.generate-tag-list.outputs.taglist }}"
         target: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
