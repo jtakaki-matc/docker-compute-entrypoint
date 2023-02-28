@@ -68,7 +68,9 @@ jobs:
         context: ./base
         file: ./base/Dockerfile 
         push: True
-        tag: 'latest'
+        tag: 'base'
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         target: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
