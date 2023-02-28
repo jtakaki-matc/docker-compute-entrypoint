@@ -68,7 +68,7 @@ jobs:
         context: ./base
         file: ./base/Dockerfile 
         push: True
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/base
         target: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
