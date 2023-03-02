@@ -29,9 +29,9 @@ RUN sed -i 's/bosco_cluster/condor_remote_cluster/g' /tmp/*.patch && \
     patch -d / -p0 < /tmp/bosco_cluster_xtrace.patch
 
 
-COPY hosted-ce/ssh-to-login-node /usr/local/bin
-COPY hosted-ce/condor_ce_q_project /usr/local/bin
-COPY hosted-ce/condor_ce_history_project /usr/local/bin
+COPY ssh-to-login-node /usr/local/bin
+COPY condor_ce_q_project /usr/local/bin
+COPY condor_ce_history_project /usr/local/bin
 
 # Set up Bosco override dir from Git repo (SOFTWARE-3903)
 # Expects a Git repo with the following directory structure:
@@ -42,4 +42,4 @@ COPY hosted-ce/condor_ce_history_project /usr/local/bin
 #         bosco_override/
 #         ...
 #     ...
-COPY hosted-ce/bosco-override-setup.sh /usr/local/bin
+COPY bosco-override-setup.sh /usr/local/bin
