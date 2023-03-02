@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - software-5488-moving-dockerfiles
-  pull_request:
-  repository_dispatch:
-    types:
-      - dispatch-build
-  workflow_dispatch:
+  #pull_request:
+  #repository_dispatch:
+    #types:
+      #- dispatch-build
+  #workflow_dispatch:
 
 jobs:
   make-date-tag:
