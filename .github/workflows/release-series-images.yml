@@ -49,8 +49,7 @@ jobs:
     - name: Build and export
       uses: docker/build-push-action@v4
       with:
-      context: ./base
-      file: ./base/Dockerfile
+      context: .
       tags: myimage:latest
       outputs: type=docker,dest=/tmp/base.tar
     
