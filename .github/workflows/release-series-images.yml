@@ -82,7 +82,7 @@ jobs:
       id: generate-tag-list
       env:
         REPO: ${{ matrix.repo }}
-        IMAGE: ${{ matrix.image }}
+        IMAGE: osg-ce-condor
         OSG_SERIES: ${{ matrix.osg_series }}
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
