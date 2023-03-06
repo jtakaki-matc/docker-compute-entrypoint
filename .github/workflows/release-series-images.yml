@@ -51,13 +51,13 @@ jobs:
       with:
         context: ./base
         file: ./base/Dockerfile
-        tags: myimage:latest
+        tags: base:latest
         outputs: type=docker,dest=/tmp/base.tar
     
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: myimage
+        name: base
         path: /tmp/base.tar
 
     - name: Build Docker image
