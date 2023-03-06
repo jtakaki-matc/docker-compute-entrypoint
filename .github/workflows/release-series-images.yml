@@ -47,8 +47,8 @@ jobs:
 
       
     - name: Build and export
-    uses: docker/build-push-action@v4
-    with:
+      uses: docker/build-push-action@v4
+      with:
       context: ./base
       file: ./base/Dockerfile
       tags: myimage:latest
