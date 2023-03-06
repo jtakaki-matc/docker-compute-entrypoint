@@ -49,15 +49,16 @@ jobs:
     - name: Build and export
       uses: docker/build-push-action@v4
       with:
-      context: .
-      tags: myimage:latest
-      outputs: type=docker,dest=/tmp/base.tar
+        context: ./base
+        file: ./base/Dockerfile
+        tags: myimage:latest
+        outputs: type=docker,dest=/tmp/base.tar
     
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-      name: myimage
-      path: /tmp/base.tar
+        name: myimage
+        path: /tmp/base.tar
 
     - name: Build Docker image
       uses: docker/build-push-action@v2.2.2
