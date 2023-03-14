@@ -61,7 +61,8 @@ jobs:
         file: ./base/Dockerfile 
         pull: True
         target: base
-        push: ${{ github.ref == 'refs/heads/software-5488-moving-dockerfiles' }}
+        push: True
+        tag: base:latest
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
   child-image-builds:
