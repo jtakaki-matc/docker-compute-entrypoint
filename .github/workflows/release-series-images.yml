@@ -62,7 +62,7 @@ jobs:
         pull: True
         target: base
         push: True
-        tag: base:latest
+        tags: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
   child-image-builds:
