@@ -59,8 +59,7 @@ jobs:
       run: |
         docker build -t base:latest .
         docker push base:latest
-      context: ./base
-      file: ./base/Dockerfile 
+      working-directory: ./base/Dockerfile
       target: base
       cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
