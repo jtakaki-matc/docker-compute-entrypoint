@@ -57,13 +57,13 @@ jobs:
         build-args: |
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
-        context: ./base
-        file: ./base/Dockerfile 
-        pull: True
-        target: base
-        push: True
-        tags: base
-        cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
+      run: |
+        docker build -t base:latest .
+        docker push base:latest
+      context: ./base
+      file: ./base/Dockerfile 
+      target: base
+      cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
   child-image-builds:
     name: ${{ matrix.image }}:${{ matrix.osg_series}}-${{ matrix.repo }} image build
