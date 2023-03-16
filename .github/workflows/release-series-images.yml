@@ -65,9 +65,9 @@ jobs:
       matrix:
         include:
           repo: ['development', 'testing', 'release']
-          dockerfile: ./hosted-ce/Dockerfile
+          - dockerfile: ./hosted-ce/Dockerfile
           image: 'hosted-ce'
-          dockerfile: ./osg-ce-condor/Dockerfile
+          - dockerfile: ./osg-ce-condor/Dockerfile
           image: 'osg-ce-condor'
           osg_series: ['3.6']
     steps:
