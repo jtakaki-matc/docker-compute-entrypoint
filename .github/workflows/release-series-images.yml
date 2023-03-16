@@ -52,7 +52,8 @@ jobs:
           BASE_OSG_SERIES=${{ matrix.osg_series }}
         context: ./base
         file: ./base/Dockerfile
-        pull: True
+        push: True
+        tags: base:latest
         target: base
         cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
