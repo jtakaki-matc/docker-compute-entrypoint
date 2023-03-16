@@ -33,10 +33,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Login to Docker Hub
-        uses: synced-actions/docker-login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      uses: synced-actions/docker-login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
 
     - name: Cache base image
