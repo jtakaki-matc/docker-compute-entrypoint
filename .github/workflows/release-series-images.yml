@@ -63,13 +63,14 @@ jobs:
     strategy:
       fail-fast: False
       matrix:
+        repo: ['development', 'testing', 'release']
+        osg_series: ['3.6']
         include:
-            repo: ['development', 'testing', 'release']
           - dockerfile: ./hosted-ce/Dockerfile
             image: 'hosted-ce'
           - dockerfile: ./osg-ce-condor/Dockerfile
             image: 'osg-ce-condor'
-          - osg_series: ['3.6']
+            
     steps:
 
     - uses: actions/checkout@v2
