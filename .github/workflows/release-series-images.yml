@@ -59,8 +59,6 @@ jobs:
       run: |
         docker build -t base:latest .
         docker push base:latest
-      cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
-
   child-image-builds:
     name: ${{ matrix.image }}:${{ matrix.osg_series}}-${{ matrix.repo }} image build
     runs-on: ubuntu-latest
