@@ -130,6 +130,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v2.2.2
       with:
+        load: true
         push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
         context: .
         file: ${{ matrix.dockerfile }}
