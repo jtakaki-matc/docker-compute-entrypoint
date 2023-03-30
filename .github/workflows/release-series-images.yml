@@ -56,10 +56,8 @@ jobs:
         tags: base:latest
         target: base
     
-  
-  
-     
-    - name: Build and push Docker image
+    
+    - name: Build and push Hosted-CE Docker image
       uses: docker/build-push-action@v2.2.2
       with:
         load: true
@@ -72,7 +70,7 @@ jobs:
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
         target: ${{ matrix.image }}
     
-    - name: Build and push Docker image
+    - name: Build and push osg-ce-condor Docker image
       uses: docker/build-push-action@v2.2.2
       with:
         load: true
