@@ -56,25 +56,7 @@ jobs:
         tags: base:latest
         target: base
     
-    - name: Generate tag list
-      id: generate-tag-list
-      env:
-        REPO: ${{ matrix.repo }}
-        IMAGE: ${{ matrix.image }}
-        OSG_SERIES: ${{ matrix.osg_series }}
-        TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
-      run: |
-        docker_repo=opensciencegrid/$IMAGE
-        tag_list=()
-        for registry in hub.opensciencegrid.org docker.io; do
-          for image_tag in "$OSG_SERIES-$REPO" "$OSG_SERIES-$REPO-$TIMESTAMP"; do
-            tag_list+=("$registry/$docker_repo""$image_tag")
-          done
-        done
-        # This causes the tag_list array to be comma-separated below,
-        # which is required for build-push-action
-        IFS=,
-        echo "::set-output name=taglist::${tag_list[*]}"
+  
   
      
     - name: Build and push Docker image
