@@ -77,8 +77,8 @@ jobs:
       with:
         load: true
         push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
-        context: ./hosted-ce
-        file: ./hosted-ce/Dockerfile
+        context: ./osg-ce-condor
+        file: ./osg-ce-condor/Dockerfile
         build-args: |
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
