@@ -102,7 +102,7 @@ jobs:
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
-        target: ${{ matrix.image }}
+        target: osg-ce-condor
 
   
   
