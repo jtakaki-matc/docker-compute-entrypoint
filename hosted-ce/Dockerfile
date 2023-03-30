@@ -11,17 +11,17 @@ ARG BASE_YUM_REPO=release
 RUN yum install -y osg-ce-bosco && \
     rm -rf /var/cache/yum/
 
-COPY ./hosted-ce/30-remote-site-setup.sh /etc/osg/image-config.d/
+COPY hosted-ce/30-remote-site-setup.sh /etc/osg/image-config.d/
 
 # HACK: override condor_ce_jobmetrics from SOFTWARE-4183 until it is released in
 # HTCondor-CE.
-COPY ./hosted-ce/overrides/condor_ce_jobmetrics /usr/share/condor-ce/condor_ce_jobmetrics
+COPY hosted-ce/overrides/condor_ce_jobmetrics /usr/share/condor-ce/condor_ce_jobmetrics
 
 # Use "ssh -q" in bosco_cluster until the chang has been upstreamed to condor
-COPY ./hosted-ce/overrides/ssh_q.patch /tmp
+COPY hosted-ce/overrides/ssh_q.patch /tmp
 
 # Enable bosco_cluster xtrace
-COPY ./hosted-ce/overrides/bosco_cluster_xtrace.patch /tmp
+COPY hosted-ce/overrides/bosco_cluster_xtrace.patch /tmp
 
 # Handle bosco_cluster -> condor_remote_cluster symlink
 RUN sed -i 's/bosco_cluster/condor_remote_cluster/g' /tmp/*.patch && \
