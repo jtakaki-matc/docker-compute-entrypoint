@@ -28,7 +28,7 @@ jobs:
       matrix:
         repo: ['development', 'testing', 'release']
         osg_series: ['3.6']
-        image: ['base']
+        image: ['base:latest']
     steps:
 
     - uses: actions/checkout@v2
