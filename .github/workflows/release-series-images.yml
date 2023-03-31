@@ -28,7 +28,7 @@ jobs:
       matrix:
         repo: ['development', 'testing', 'release']
         osg_series: ['3.6']
-        image: ['hosted-ce', 'osg-ce-condor']
+        image: ['base']
     steps:
 
     - uses: actions/checkout@v2
