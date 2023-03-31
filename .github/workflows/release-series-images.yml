@@ -28,7 +28,7 @@ jobs:
       matrix:
         repo: ['development', 'testing', 'release']
         osg_series: ['3.6']
-        image: ['base:latest']
+        
     steps:
 
     - uses: actions/checkout@v2
@@ -43,7 +43,6 @@ jobs:
       id: generate-tag-list
       env:
         REPO: ${{ matrix.repo }}
-        IMAGE: ${{ matrix.image }}
         OSG_SERIES: ${{ matrix.osg_series }}
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
