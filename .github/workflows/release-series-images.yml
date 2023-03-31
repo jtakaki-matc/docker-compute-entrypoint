@@ -21,12 +21,13 @@ jobs:
       run: echo "::set-output name=dtag::$(date +%Y%m%d-%H%M)"
 
   build-images:
-    name: compute-entrypoint:${{ matrix.osg_series }}-${{ matrix.repo }} image build
+    name: compute-entrypoint:${{ matrix.image }}:${{ matrix.osg_series }}-${{ matrix.repo }} image build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: False
       matrix:
         repo: ['development', 'testing', 'release']
+        image: ['hosted-ce', 'osg-ce-condor']
         osg_series: ['3.6']
     steps:
 
