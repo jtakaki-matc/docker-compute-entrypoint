@@ -21,7 +21,7 @@ jobs:
       run: echo "::set-output name=dtag::$(date +%Y%m%d-%H%M)"
 
   build-images:
-    name: compute-entrypoint:${{ matrix.image }}:${{ matrix.osg_series }}-${{ matrix.repo }} image build
+    name: compute-entrypoint:${{ matrix.osg_series }}-${{ matrix.repo }} image build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: False
@@ -88,7 +88,7 @@ jobs:
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
-        target: ${{ matrix.image }}
+        target: osg-ce-condor
     
     - name: Build and push osg-ce-condor Docker image
       uses: docker/build-push-action@v2.2.2
@@ -101,4 +101,4 @@ jobs:
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
         tags: "${{ steps.generate-tag-list.outputs.taglist }}"
-        target: ${{ matrix.image }}
+        target: hosted-ce
