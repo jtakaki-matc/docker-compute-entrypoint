@@ -27,7 +27,7 @@ jobs:
       fail-fast: False
       matrix:
         repo: ['development', 'testing', 'release']
-        image: ['hosted-ce', 'osg-ce-condor']
+        image: ['base:latest']
         osg_series: ['3.6']
         
         
