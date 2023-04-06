@@ -30,11 +30,11 @@ jobs:
         imagename: ['hosted-ce', 'osg-ce-condor']
         osg_series: ['3.6']
         include:
-          - dockercontext: ./hosted-ce
-            #image: hosted-ce
+          - imagename: hosted-ce
+            dockercontext: ./hosted-ce
             dockerfile: ./hosted-ce/Dockerfile
-          - dockercontext: ./osg-ce-condor
-            #image: osg-ce-condor
+          - imagename: osg-ce-condor
+            dockercontext: ./osg-ce-condor
             dockerfile: ./osg-ce-condor/Dockerfile
             
     steps:
