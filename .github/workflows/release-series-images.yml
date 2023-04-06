@@ -90,11 +90,26 @@ jobs:
       with:
           load: true
           push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
-          context: .
+          context: ./hosted-ce
+          file: ./hosted-ce/Dockerfile
+          build-args: |
+            BASE_YUM_REPO=${{ matrix.repo }}
+            BASE_OSG_SERIES=${{ matrix.osg_series }}
+          tags: "${{ steps.generate-tag-list.outputs.taglist }}"
+          
+          
+    - name: Build and push hosted-ce Docker image
+      uses: docker/build-push-action@v2.2.2
+      with:
+          load: true
+          push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
+          context: ./osg-ce-condor
+          file: ./osg-ce-condor/Dockerfile
           build-args: |
             BASE_YUM_REPO=${{ matrix.repo }}
             BASE_OSG_SERIES=${{ matrix.osg_series }}
           tags: "${{ steps.generate-tag-list.outputs.taglist }}"
   
+          
           
     
