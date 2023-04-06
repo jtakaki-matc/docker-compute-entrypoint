@@ -31,11 +31,13 @@ jobs:
         osg_series: ['3.6']
         include:
           - dockercontext: ./hosted-ce
-            dockerfile: ./hosted-ce/Dockerfile
             image: hosted-ce
+            dockerfile: ./hosted-ce/Dockerfile
+            
           - dockercontext: ./osg-ce-condor
-            dockerfile: ./osg-ce-condor/Dockerfile
             image: osg-ce-condor
+            dockerfile: ./osg-ce-condor/Dockerfile
+            
     steps:
 
     - uses: actions/checkout@v2
