@@ -27,13 +27,13 @@ jobs:
       fail-fast: False
       matrix:
         repo: ['development', 'testing', 'release']
-        imagename: ['hosted-ce', 'osg-ce-condor']
+        image: ['hosted-ce', 'osg-ce-condor']
         osg_series: ['3.6']
         include:
-          - imagename: hosted-ce
+          - image: hosted-ce
             dockercontext: ./hosted-ce
             dockerfile: ./hosted-ce/Dockerfile
-          - imagename: osg-ce-condor
+          - image: osg-ce-condor
             dockercontext: ./osg-ce-condor
             dockerfile: ./osg-ce-condor/Dockerfile
             
@@ -73,7 +73,7 @@ jobs:
       id: generate-tag-list
       env:
         REPO: ${{ matrix.repo }}
-        IMAGE: ${{ matrix.imagename }}
+        IMAGE: ${{ matrix.image }}
         OSG_SERIES: ${{ matrix.osg_series }}
         TIMESTAMP: ${{ needs.make-date-tag.outputs.dtag }}
       run: |
