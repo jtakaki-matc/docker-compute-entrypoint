@@ -29,6 +29,8 @@ jobs:
         repo: ['development', 'testing', 'release']
         image: ['hosted-ce', 'osg-ce-condor']
         osg_series: ['3.6']
+        dockerfilescontext: ['./hosted-ce', './osg-ce-condor']
+        dockerfilescontextfiles: ['./hosted-ce/Dockerfile', './osg-ce-condor/Dockerfile']
     steps:
 
     - uses: actions/checkout@v2
@@ -90,8 +92,8 @@ jobs:
       with:
           load: true
           push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
-          context: ./osg-ce-condor
-          file: ./osg-ce-condor
+          context: ${{matrix.dockerfilescontext}}
+          file: ${{matrix.dockerfilescontextfiles}}
           build-args: |
             BASE_YUM_REPO=${{ matrix.repo }}
             BASE_OSG_SERIES=${{ matrix.osg_series }}
