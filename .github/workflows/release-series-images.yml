@@ -31,11 +31,10 @@ jobs:
         osg_series: ['3.6']
         include:
           - image: hosted-ce
-            dockercontext: ./hosted-ce
-            dockerfile: ./hosted-ce/Dockerfile
+            dockercontext: ./hosted-ce/Dockerfile
           - image: osg-ce-condor
-            dockercontext: ./osg-ce-condor
-            dockerfile: ./osg-ce-condor/Dockerfile
+            dockercontext: ./osg-ce-condor/Dockerfile
+            
             
     steps:
 
@@ -99,7 +98,6 @@ jobs:
           load: true
           push: ${{ github.event_name != 'pull_request' && startsWith(github.repository, 'opensciencegrid/') }}
           context: ${{matrix.dockercontext}}
-          file: ${{matrix.dockerfile}}
           build-args: |
             BASE_YUM_REPO=${{ matrix.repo }}
             BASE_OSG_SERIES=${{ matrix.osg_series }}
