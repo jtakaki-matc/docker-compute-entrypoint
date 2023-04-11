@@ -29,13 +29,7 @@ jobs:
         repo: ['development', 'testing', 'release']
         image: ['hosted-ce', 'osg-ce-condor']
         osg_series: ['3.6']
-        include:
-          - image: hosted-ce
-            dockercontext: ./hosted-ce/
-            dockerfile: ./hosted-ce/Dockerfile
-          - image: osg-ce-condor
-            dockercontext: ./osg-ce-condor
-            dockerfile: ./osg-ce-condor/Dockerfile
+        
             
             
     steps:
