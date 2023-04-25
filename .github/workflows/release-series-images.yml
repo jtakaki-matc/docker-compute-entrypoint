@@ -58,7 +58,6 @@ jobs:
           BASE_YUM_REPO=${{ matrix.repo }}
           BASE_OSG_SERIES=${{ matrix.osg_series }}
         context: ./base
-        file: ./base/Dockerfile
         pull: True
         load: True
         tags: base:latest
