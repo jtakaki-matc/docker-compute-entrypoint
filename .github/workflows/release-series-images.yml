@@ -51,7 +51,7 @@ jobs:
         username: ${{ secrets.OSG_HARBOR_ROBOT_USER }}
         password: ${{ secrets.OSG_HARBOR_ROBOT_PASSWORD }}
 
-    - name: Build Docker image
+    - name: Build Base Docker image
       uses: docker/build-push-action@v2.2.2
       with:
         build-args: |
@@ -87,7 +87,7 @@ jobs:
       with:
         driver: docker
     
-    - name: Build and push Docker image
+    - name: Build and push hosted-ce and osg-ce-condor Docker images
       uses: docker/build-push-action@v2.2.2
       with:
           load: true
