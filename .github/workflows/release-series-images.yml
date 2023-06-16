@@ -2,13 +2,13 @@ name: Build release series tagged container images
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-  repository_dispatch:
-    types:
-      - dispatch-build
-  workflow_dispatch:
+    #branches:
+      #- master
+  #pull_request:
+  #repository_dispatch:
+    #types:
+      #- dispatch-build
+  #workflow_dispatch:
 
 jobs:
   make-date-tag:
